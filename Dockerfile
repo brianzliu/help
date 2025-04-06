@@ -25,8 +25,6 @@ RUN CHROME_DRIVER_VERSION=$(wget -qO- https://chromedriver.storage.googleapis.co
 # Copy requirements file
 COPY requirements.txt .
 
-RUN pip install help
-
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
