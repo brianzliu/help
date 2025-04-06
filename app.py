@@ -9,7 +9,12 @@ from inference import (
 )
 
 app = Flask(__name__)
-CORS(app)
+# Configure CORS explicitly with all needed settings
+CORS(app, resources={r"/*": {
+    "origins": "*",
+    "methods": ["GET", "POST", "OPTIONS"],
+    "allow_headers": ["Content-Type", "Authorization", "X-Requested-With"]
+}})
 
 @app.route('/')
 def index():

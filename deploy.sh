@@ -23,7 +23,10 @@ gcloud run deploy $SERVICE_NAME \
   --set-env-vars="PROJECT_ID=$PROJECT_ID,REGION=$REGION,ENDPOINT_ID=3163467576437112832" \
   --memory 2Gi \
   --cpu 2 \
-  --timeout 300s
+  --timeout 300s \
+  --add-cloud-sql-instances=none \
+  --set-env-vars="CORS_ALLOW_ORIGIN=*" \
+  --http-headers="Access-Control-Allow-Origin=*,Access-Control-Allow-Methods=GET;POST;OPTIONS,Access-Control-Allow-Headers=Content-Type;Authorization;X-Requested-With"
 
 # Get the URL of the deployed service
 URL=$(gcloud run services describe $SERVICE_NAME --region $REGION --format="value(status.url)")
