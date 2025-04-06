@@ -1,0 +1,13 @@
+# Python pycache:
+__pycache__/
+# Ignored by the build system
+/setup.cfg
+# Git and version control
+.git
+.gitignore
+.github
+# Local development settings
+venv/
+.env.local
+*.pyc
+.DS_Store
